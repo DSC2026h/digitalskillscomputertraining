@@ -325,6 +325,7 @@
         <a href="about.html">ℹ️ About</a>
         <a href="#courses">📚 Courses</a>
         <a href="#certificate">🏆 Certificate</a>
+        <a href="#verify">🔎 Verify Certificate</a>
         <a href="https://tinyurl.com/DComputertraining">📝 Register</a>
     </nav>
 
@@ -786,7 +787,39 @@
         </button>
 
     </section>
+<!-- CERTIFICATE VERIFICATION -->
+<section class="section" id="verify">
 
+    <h2>🔎 Certificate Verification</h2>
+
+    <p>
+        Verify the authenticity of a certificate issued by
+        Digital Skills & Computer Training.
+    </p>
+
+    <div class="certificate-box">
+
+        <h3>🔐 Verify Certificate</h3>
+
+        <input
+            type="text"
+            id="verifyCertificateID"
+            placeholder="Enter Certificate ID e.g. DSCT-2026-001"
+        >
+
+        <button
+            class="button"
+            onclick="verifyCertificate()">
+            🔎 VERIFY CERTIFICATE
+        </button>
+
+        <div id="verificationResult"
+             style="margin-top:20px;">
+        </div>
+
+    </div>
+
+</section>
 
     <!-- CONTACT -->
     <section class="section">
@@ -946,7 +979,142 @@
 
     </script>
 
+<script>
 
+async function verifyCertificate() {
+
+    const certificateID =
+        document.getElementById("verifyCertificateID").value.trim();
+
+    const result =
+        document.getElementById("verificationResult");
+
+    if (certificateID === "") {
+
+        result.innerHTML =
+            "<p style='color:red; font-weight:bold;'>Please enter a Certificate ID.</p>";
+
+        return;
+    }
+
+    result.innerHTML =
+        "<p>🔄 Checking certificate...</p>";
+
+    const webAppURL =
+        "https://script.google.com/macros/s/AKfycbzEgIHBEw1QXnJnnvvxx3qd7hG6IHNSc0KJkoDwaZvqmv_t3JimkrC_7fMthEHZHYsi/exec";
+
+    try {
+
+        const response =
+            await fetch(
+                webAppURL +
+                "?id=" +
+                encodeURIComponent(certificateID)
+            );
+
+        const data =
+            await response.json();
+
+        if (data.status === "valid") {
+
+            result.innerHTML = `
+                <div style="
+                    background:#e8f8ee;
+                    border:2px solid #0a9f45;
+                    border-radius:12px;
+                    padding:20px;
+                    text-align:left;
+                ">
+
+                    <h3 style="color:#0a9f45;">
+                        ✅ Certificate Verified
+                    </h3>
+
+                    <p>
+                        <strong>Certificate ID:</strong>
+                        ${data.certificateID}
+                    </p>
+
+                    <p>
+                        <strong>Student Name:</strong>
+                        ${data.studentName}
+                    </p>
+
+                    <p>
+                        <strong>Course:</strong>
+                        ${data.course}
+                    </p>
+
+                    <p>
+                        <strong>Completion Date:</strong>
+                        ${data.completionDate}
+                    </p>
+
+                    <p>
+                        <strong>Issued By:</strong>
+                        Digital Skills & Computer Training
+                    </p>
+
+                </div>
+            `;
+
+        } else {
+
+            result.innerHTML = `
+                <div style="
+                    background:#fff0f0;
+                    border:2px solid red;
+                    border-radius:12px;
+                    padding:20px;
+                ">
+
+                    <h3 style="color:red;">
+                        ❌ Certificate Not Found
+                    </h3>
+
+                    <p>
+                        The Certificate ID entered could not
+                        be found in our records.
+                    </p>
+
+                    <p>
+                        Please check the Certificate ID and try again.
+                    </p>
+
+                </div>
+            `;
+
+        }
+
+    } catch (error) {
+
+        result.innerHTML = `
+            <div style="
+                background:#fff4e5;
+                border:2px solid #ff9800;
+                border-radius:12px;
+                padding:20px;
+            ">
+
+                <h3>⚠️ Verification Error</h3>
+
+                <p>
+                    We could not connect to the certificate
+                    verification system.
+                </p>
+
+                <p>
+                    Please try again later.
+                </p>
+
+            </div>
+        `;
+
+        console.error(error);
+    }
+}
+
+</script>
     <!-- TAWK.TO LIVE CHAT -->
 
     <script type="text/javascript">
