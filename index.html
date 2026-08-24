@@ -1,65 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Digital Skills & Computer Training</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-@media (max-width: 600px) {
 
-    header h1 {
-        font-size: 24px;
-    }
+    <title>Digital Skills & Computer Training</title>
 
-    header p {
-        font-size: 15px;
-    }
-
-    nav {
-        padding: 12px 5px;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 5px 3px;
-        font-size: 14px;
-    }
-
-    .section {
-        padding: 25px 15px;
-    }
-
-    .section h2 {
-        font-size: 22px;
-    }
-
-    .course {
-        margin: 12px 0;
-        padding: 18px;
-    }
-
-    .button {
-        width: 80%;
-        max-width: 300px;
-    }
-
-}
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
-            body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(
-        135deg,
-        #ff0000,
-        #ff7f00,
-        #ffff00,
-        #00cc44,
-        #008cff,
-        #4b0082,
-        #8f00ff
-    );
-    background-attachment: fixed;
-    color: #222;
-}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(
+                135deg,
+                #ff0000,
+                #ff7f00,
+                #ffff00,
+                #00cc44,
+                #008cff,
+                #4b0082,
+                #8f00ff
+            );
+            background-attachment: fixed;
+            color: #222;
         }
 
         header {
@@ -78,6 +44,28 @@
             font-size: 16px;
         }
 
+        .ceo-name {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        nav {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 8px;
+            color: #063b8f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
         .hero {
             text-align: center;
             padding: 50px 20px;
@@ -92,28 +80,28 @@
         .hero p {
             font-size: 17px;
             line-height: 1.6;
-        
+        }
+
         .button {
-    display: inline-block;
-    background: #0a9f45;
-    color: white;
-    padding: 14px 26px;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-top: 15px;
-    font-weight: bold;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-}
+            display: inline-block;
+            background: #0a9f45;
+            color: white;
+            padding: 14px 26px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
 
         .section {
-    padding: 35px 20px;
-    text-align: center;
-    background: white;
-    margin: 20px auto;
-    max-width: 1100px;
-    border-radius: 15px;
-}
+            padding: 35px 20px;
+            text-align: center;
+            background: white;
+            margin: 20px auto;
+            max-width: 1100px;
+            border-radius: 15px;
+        }
 
         .section h2 {
             color: #0876d1;
@@ -121,366 +109,418 @@
 
         .courses {
             display: grid;
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
         }
 
         .course {
-    background: white;
-    padding: 22px;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.10);
-    margin: 18px 0;
-    border-top: 4px solid #0876d1;
-    overflow: hidden;
-}
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+            border-top: 4px solid #0876d1;
+            overflow: hidden;
+            transition: 0.3s;
         }
-.course:hover {
-    transform: translateY(-5px);
-    transition: 0.3s;
-}
+
+        .course:hover {
+            transform: translateY(-5px);
+        }
+
+        .course img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
         footer {
-    background: #063b8f;
-    color: white;
-    text-align: center;
-    padding: 25px 20px;
-}
-        }.course img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
-.ceo-name {
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-top: 8px;
-}
+            background: #063b8f;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            nav {
+                padding: 12px 5px;
+            }
+
+            nav a {
+                margin: 5px 3px;
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 25px 15px;
+                margin: 15px 10px;
+            }
+
+            .section h2 {
+                font-size: 22px;
+            }
+
+            .course {
+                padding: 18px;
+            }
+
+            .button {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .course img {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Digital Skills & Computer Training</h1>
-    <p>Learn • Practice • Grow • Succeed</p>
-<p class="ceo-name"><strong>OSUMAH HEBREWS OGIEAGHA</strong> — CEO</p>
-</header>
-<nav style="text-align:center; padding:15px; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.12);">
-    <a href="index.html" style="margin:8px; color:#063b8f; text-decoration:none; font-weight:bold;">🏠 Home</a>
-    <a href="about.html" style="margin:8px; color:#063b8f; text-decoration:none; font-weight:bold;">ℹ️ About</a>
-    <a href="courses.html" style="margin:8px; color:#063b8f; text-decoration:none; font-weight:bold;">📚 Courses</a>
-    <a href="https://tinyurl.com/DComputertraining" style="margin:8px; color:#063b8f; text-decoration:none; font-weight:bold;">📝 Register</a>
-</nav>
-<section class="hero">
-    <h2>Welcome to Our Training Hub</h2>
+    <!-- HEADER -->
+    <header>
+        <h1>Digital Skills & Computer Training</h1>
+        <p>Learn • Practice • Grow • Succeed</p>
+        <p class="ceo-name">OSUMAH HEBREWS OGIEAGHA — CEO</p>
+    </header>
 
 
-    <p>
-        Build practical computer and digital skills that can help you
-        succeed in school, business, work and everyday life.
-    </p>
-<section class="section">
-    <h2>💻 Our Practical Training</h2>
-    <p>Learn practical technology skills through hands-on training.</p>
-
-    <div class="course">
-        <img src="images/computer-training.jpg"
-             alt="Computer training"
-             style="width:100%; border-radius:10px;">
-        <h3>💻 Computer Training</h3>
-        <p>Build strong computer skills through practical training.</p>
-    </div>
-
-    <div class="course">
-        <img src="images/website-building.jpg"
-             alt="Website and app building"
-             style="width:100%; border-radius:10px;">
-        <h3>🌐 Website & App Building</h3>
-        <p>Learn HTML, website development and basic app building.</p>
-    </div>
-
-    <div class="course">
-        <img src="image/cybersecurity.jpg"
-             alt="Cybersecurity training"
-             style="width:100%; border-radius:10px;">
-        <h3>🔐 Cybersecurity</h3>
-        <p>Learn cybersecurity fundamentals and responsible security practices.</p>
-    </div>
-
-    <div class="course">
-        <img src="images/digitalskills.jpg"
-             alt="Digital skills training"
-             style="width:100%; border-radius:10px;">
-        <h3>📊 Digital Skills</h3>
-        <p>Develop practical digital skills for work, business and everyday life.</p>
-    </div>
-</section>
-    <a href="#courses" class="button">View Our Courses</a>
-</section>
-<section class="section">
-    <h2>📅 Training Schedule</h2>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html">🏠 Home</a>
+        <a href="about.html">ℹ️ About</a>
+        <a href="#courses">📚 Courses</a>
+        <a href="https://tinyurl.com/DComputertraining">📝 Register</a>
+    </nav>
 
 
-        <div class="course">
-<section class="section">
-    <h2>📅 Training Schedule</h2>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Welcome to Our Training Hub</h2>
 
-    <div class="course">
-        <h3>🎓 Next Training Start</h3>
-        <p><strong>September 21, 2026</strong></p>
-    </div>
-
-    <div class="course">
-        <h3>🗓️ Training Days</h3>
-        <p>Monday to Friday / Weekends</p>
-    </div>
-
-    <div class="course">
-        <h3>⏰ Training Times</h3>
         <p>
-            <strong>Morning:</strong> 8:30 AM – 11:30 AM
+            Build practical computer and digital skills that can help you
+            succeed in school, business, work and everyday life.
         </p>
+
+        <a href="#courses" class="button">View Our Courses</a>
+    </section>
+
+
+    <!-- PRACTICAL TRAINING WITH PICTURES -->
+    <section class="section">
+        <h2>💻 Our Practical Training</h2>
+        <p>Learn practical technology skills through hands-on training.</p>
+
+        <div class="courses">
+
+            <div class="course">
+                <img src="images/computer-training.jpg"
+                     alt="Computer Training">
+                <h3>💻 Computer Training</h3>
+                <p>Build strong computer skills through practical training.</p>
+            </div>
+
+            <div class="course">
+                <img src="images/website-building.jpg"
+                     alt="Website and App Building">
+                <h3>🌐 Website & App Building</h3>
+                <p>Learn HTML, website development and basic app building.</p>
+            </div>
+
+            <div class="course">
+                <img src="images/cybersecurity.jpg"
+                     alt="Cybersecurity Training">
+                <h3>🔐 Cybersecurity</h3>
+                <p>Learn cybersecurity fundamentals and responsible security practices.</p>
+            </div>
+
+            <div class="course">
+                <img src="images/digitalskills.jpg"
+                     alt="Digital Skills Training">
+                <h3>📊 Digital Skills</h3>
+                <p>Develop practical digital skills for work, business and everyday life.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- TRAINING SCHEDULE -->
+    <section class="section">
+        <h2>📅 Training Schedule</h2>
+
+        <div class="courses">
+
+            <div class="course">
+                <h3>🎓 Next Training Start</h3>
+                <p><strong>September 21, 2026</strong></p>
+            </div>
+
+            <div class="course">
+                <h3>🗓️ Training Days</h3>
+                <p>Monday to Friday / Weekends</p>
+            </div>
+
+            <div class="course">
+                <h3>⏰ Training Times</h3>
+                <p><strong>Morning:</strong> 8:30 AM – 11:30 AM</p>
+                <p><strong>Evening:</strong> 6:00 PM – 9:00 PM</p>
+            </div>
+
+            <div class="course">
+                <h3>⏱️ Training Duration</h3>
+                <p>3 hours per session</p>
+            </div>
+
+            <div class="course">
+                <h3>💻 Training Mode</h3>
+                <p>Physical & Online</p>
+            </div>
+
+            <div class="course">
+                <h3>📍 Physical Training Location</h3>
+                <p>42 Igando Road, Ikotun, Lagos, Nigeria</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- REGISTER -->
+    <section class="section">
+        <h2>📝 Register for Training</h2>
+
         <p>
-            <strong>Evening:</strong> 6:00 PM – 9:00 PM
+            Ready to improve your computer and digital skills?
+            Register today and start your learning journey with us.
         </p>
-    </div>
 
-    <div class="course">
-        <h3>⏱️ Training Duration</h3>
-        <p>3 hours per session</p>
-    </div>
+        <p><strong>Registration Fee: ₦5,000</strong></p>
 
-    <div class="course">
-        <h3>💻 Training Mode</h3>
-        <p>Physical & Online</p>
-    </div>
+        <a href="https://tinyurl.com/DComputertraining" class="button">
+            📝 REGISTER NOW
+        </a>
+    </section>
 
-    <div class="course">
-        <h3>📍 Physical Training Location</h3>
-        <p>42 Igando Road, Ikotun, Lagos, Nigeria</p>
-    </div>
-</section>
-            <section class="section">
-    <h2>📝 Register for Training</h2>
 
-    <p>
-        Ready to improve your computer and digital skills?
-        Register today and start your learning journey with us.
-    </p>
+    <!-- ABOUT -->
+    <section class="section">
+        <h2>About Digital Skills & Computer Training</h2>
 
-    <p>
-        <strong>Registration Fee: ₦5,000</strong>
-    </p>
+        <p>
+            Digital Skills & Computer Training is a practical learning hub
+            dedicated to helping students, job seekers, business owners and
+            beginners develop valuable computer and digital skills.
+        </p>
 
-    <a href="https://tinyurl.com/DComputertraining"
-       class="button">
-        📝 REGISTER NOW
-    </a>
-</section>
-        </div>
-<section class="section">
-    <h2>About Digital Skills & Computer Training</h2>
+        <p>
+            Our training is designed to be beginner-friendly, practical and
+            focused on real-world skills for employment, business and
+            personal development.
+        </p>
 
-    <p>
-        Digital Skills & Computer Training is a practical learning hub
-        dedicated to helping students, job seekers, business owners and
-        beginners develop valuable computer and digital skills.
-    </p>
+        <p>
+            We offer training in Computer Fundamentals, Microsoft Office,
+            Digital Skills, Data Entry Skills, Website Building, Basic App
+            Building, Cybersecurity, Ethical Hacking, HTML and other
+            practical computer skills. Students can learn through physical
+            or online classes.
+        </p>
 
-    <p>
-        Our training is designed to be beginner-friendly, practical and
-        focused on real-world skills for employment, business and
-        personal development.
-    </p>
+        <h3>Our Mission</h3>
 
-    <p>
-        We offer training in Computer Fundamentals, Microsoft Office,
-        Digital Skills, Data Entry Skills, Website Building, Basic App
-        Building, Cybersecurity, Ethical Hacking, HTML and other
-        practical computer skills. Students can learn through physical
-        or online classes.
-    </p>
+        <p>
+            To make practical digital and computer skills accessible and
+            help learners gain confidence for the modern world.
+        </p>
+    </section>
 
-    <h3>Our Mission</h3>
 
-    <p>
-        To make practical digital and computer skills accessible and
-        help learners gain confidence for the modern world.
-    </p>
-</section><section class="section">
-    <h2>📞 Contact Us</h2>
+    <!-- COURSES -->
+    <section class="section" id="courses">
+        <h2>📚 Our Courses</h2>
 
-    <div class="courses">
+        <div class="courses">
 
-        <div class="course">
-            <h3>📞 Phone</h3>
-            <p>08149392254</p>
-            <p>08057847954</p>
-        </div>
+            <div class="course">
+                <h3>💻 Computer Fundamentals</h3>
+                <p>Learn the basics of using a computer, files, folders and the internet.</p>
+            </div>
 
-        <div class="course">
-            <h3>📧 Email Address</h3>
-            <p>Digitalskillscomputertrainingh@gmail.com</p>
-        </div>
+            <div class="course">
+                <h3>📊 Microsoft Office</h3>
+                <p>Learn Microsoft Word, Excel and PowerPoint for school and work.</p>
+            </div>
 
-        <div class="course">
-            <h3>📍 Location Address</h3>
-            <p>42 Igando Road, Ikotun, Lagos, Nigeria</p>
-        </div>
+            <div class="course">
+                <h3>🌐 Digital Skills</h3>
+                <p>
+                    Learn practical digital skills including website building,
+                    basic app building, online tools, internet research and
+                    digital productivity.
+                </p>
+            </div>
 
-    </div>
-</section><section class="section">
-    <h2>⭐ Student Testimonials</h2>
-
-    <div class="courses">
-
-        <div class="course">
-            <h3>Student Feedback</h3>
-            <p>
-                We value the experiences and feedback of our students.
-                Real student testimonials will be added here as our
-                learners complete their training.
-            </p>
-        </div>
-
-        <div class="course">
-            <h3>Share Your Experience</h3>
-            <p>
-                Completed your training with us?
-                We would love to hear about your learning experience.
-            </p>
-        </div>
-
-    </div>
-</section>
-    </div>
-<section class="section" id="courses">
-    <h2>Our Courses</h2><section class="section">
-    <h2>Training Fees</h2>
-
-    <div class="courses">
-
-        <div class="course">
-            <h3>Registration Fee</h3>
-            <p><strong>₦5,000</strong></p>
-        </div>
-
-        <div class="course">
-            <h3>Computer Fundamentals</h3>
-            <p><strong>₦10,000</strong></p>
-        </div>
-
-        <div class="course">
-            <h3>Microsoft Office</h3>
-            <p><strong>₦30,000</strong></p>
-        </div>
-
-        <div class="course">
-            <h3>Digital Skills</h3>
-            <p><strong>₦75,000</strong></p>
-        </div>
-
-        <div class="course">
-            <h3>Full Computer Training</h3>
-            <p><strong>₦150,000</strong></p>
-        </div>
-
-    </div>
-</section>
-    <div class="courses">
-
-        <div class="course">
-            <h3>💻 Computer Fundamentals</h3>
-            <p>Learn the basics of using a computer, files, folders and the internet.</p>
-        </div>
-
-        <div class="course">
-            <h3>📊 Microsoft Office</h3>
-            <p>Learn Microsoft Word, Excel and PowerPoint for school and work.</p>
-        </div>
-
-<div class="course">
-    <h3>🌐 Digital Skills</h3>
-    <p>
-        Learn practical digital skills including website building,
-        basic app building, online tools, internet research and
-        digital productivity.
-    </p>
+            <div class="course">
+                <h3>📱 Online Skills</h3>
+                <p>Learn useful online tools and skills for business, employment and personal development.</p>
+            </div>
 
         </div>
+    </section>
 
-        <div class="course">
-            <h3>📱 Online Skills</h3>
-            <p>Learn useful online tools and skills for business, employment and personal development.</p>
+
+    <!-- TRAINING FEES -->
+    <section class="section">
+        <h2>💰 Training Fees</h2>
+
+        <div class="courses">
+
+            <div class="course">
+                <h3>Registration Fee</h3>
+                <p><strong>₦5,000</strong></p>
+            </div>
+
+            <div class="course">
+                <h3>Computer Fundamentals</h3>
+                <p><strong>₦10,000</strong></p>
+            </div>
+
+            <div class="course">
+                <h3>Microsoft Office</h3>
+                <p><strong>₦30,000</strong></p>
+            </div>
+
+            <div class="course">
+                <h3>Digital Skills</h3>
+                <p><strong>₦75,000</strong></p>
+            </div>
+
+            <div class="course">
+                <h3>Full Computer Training</h3>
+                <p><strong>₦150,000</strong></p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- WHY CHOOSE US -->
+    <section class="section">
+        <h2>⭐ Why Choose Us?</h2>
+
+        <p>✅ Practical training</p>
+        <p>✅ Beginner-friendly lessons</p>
+        <p>✅ Flexible learning</p>
+        <p>✅ Skills for work and business</p>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+        <h2>⭐ Student Testimonials</h2>
+
+        <div class="courses">
+
+            <div class="course">
+                <h3>Student Feedback</h3>
+                <p>
+                    We value the experiences and feedback of our students.
+                    Real student testimonials will be added here as our
+                    learners complete their training.
+                </p>
+            </div>
+
+            <div class="course">
+                <h3>Share Your Experience</h3>
+                <p>
+                    Completed your training with us?
+                    We would love to hear about your learning experience.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section">
+        <h2>📞 Contact Us</h2>
+
+        <div class="courses">
+
+            <div class="course">
+                <h3>📞 Phone</h3>
+                <p>08149392254</p>
+                <p>08057847954</p>
+            </div>
+
+            <div class="course">
+                <h3>📧 Email Address</h3>
+                <p>Digitalskillscomputertrainingh@gmail.com</p>
+            </div>
+
+            <div class="course">
+                <h3>📍 Location Address</h3>
+                <p>42 Igando Road, Ikotun, Lagos, Nigeria</p>
+            </div>
+
         </div>
 
-    </div>
-</section>
+        <a href="https://wa.me/2348149392254" class="button">
+            📱 Contact Us on WhatsApp
+        </a>
+    </section>
 
-<section class="section">
-    <h2>Why Choose Us?</h2>
 
-    <p>✅ Practical training</p>
-    <p>✅ Beginner-friendly lessons</p>
-    <p>✅ Flexible learning</p>
-    <p>✅ Skills for work and business</p>
-</section>
+    <!-- FINAL REGISTRATION -->
+    <section class="section">
+        <h2>Join Our Training</h2>
 
-<section class="section">
-    <h2>Ready to Start Learning?</h2>
+        <p>Ready to develop your digital and computer skills?</p>
 
-    <p>Join our Digital Skills & Computer Training program today.</p>
+        <a href="https://tinyurl.com/DComputertraining" class="button">
+            📝 Register for Training
+        </a>
+    </section>
 
-<a href="https://wa.me/2348149392254" class="button">
-    📱 Contact Us on WhatsApp
-</a>
-</section>
 
-<footer>
-    <p>© 2026 Digital Skills & Computer Training</p>
-</footer>
-<section class="section">
-    <h2>📞 Contact Us</h2>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Digital Skills & Computer Training</p>
+    </footer>
 
-    <p>Have questions about our training programs? Contact us today.</p>
 
-    <p>
-        📧 <strong>Email:</strong><br>
-        Digitalskillscomputertrainingh@gmail.com
-    </p>
+    <!-- TAWK.TO LIVE CHAT -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 
-    <p>
-        📞 <strong>Phone:</strong><br>
-        08149392254<br>
-        08057847954
-    </p>
+        (function() {
+            var s1 = document.createElement("script");
+            var s0 = document.getElementsByTagName("script")[0];
 
-    <p>
-        📍 <strong>Physical Training Location:</strong><br>
-        42 Igando Road, Ikotun, Lagos, Nigeria
-    </p>
-</section>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a8c3ff743fd99344af4308b/1k0ptjo4k';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+            s1.async = true;
+            s1.src = "https://embed.tawk.to/6a8c3ff743fd99344af4308b/1k0ptjo4k";
+            s1.charset = "UTF-8";
+            s1.setAttribute("crossorigin", "*");
+
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
 
 </body>
-</html><section class="section">
-    <h2>Join Our Training</h2>
-    <p>Ready to develop your digital and computer skills?</p>
-
-    <a href="https://tinyurl.com/DComputertraining" class="button">
-        📝 Register for Training
-    </a>
-</section>
+</html>
