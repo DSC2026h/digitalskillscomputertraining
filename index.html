@@ -7,16 +7,7 @@
     <title>Digital Skills & Computer Training</title>
 
     <style>
-        * {.logo {
-    width: 180px;
-    max-width: 80%;
-    height: auto;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 15px;
-    background: white;
-    padding: 5px;
-}
+        * {
             box-sizing: border-box;
         }
 
@@ -35,6 +26,17 @@
             );
             background-attachment: fixed;
             color: #222;
+        }
+
+        .logo {
+            width: 180px;
+            max-width: 80%;
+            height: auto;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 15px;
+            background: white;
+            padding: 5px;
         }
 
         header {
@@ -101,6 +103,8 @@
             margin-top: 15px;
             font-weight: bold;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            border: none;
+            cursor: pointer;
         }
 
         .section {
@@ -145,12 +149,104 @@
             margin-bottom: 15px;
         }
 
+        /* CERTIFICATE SECTION */
+
+        .certificate-box {
+            max-width: 600px;
+            margin: auto;
+            padding: 25px;
+            background: #f8fbff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .certificate-box input,
+        .certificate-box select {
+            width: 100%;
+            padding: 14px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .certificate {
+            display: none;
+            margin: 30px auto 0;
+            padding: 40px 25px;
+            max-width: 850px;
+            min-height: 550px;
+            border: 12px double #0876d1;
+            background: linear-gradient(135deg, #ffffff, #f1f8ff);
+            text-align: center;
+            position: relative;
+        }
+
+        .certificate h1 {
+            color: #063b8f;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .certificate h2 {
+            color: #0876d1;
+            font-size: 28px;
+            margin: 15px 0;
+        }
+
+        .certificate-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #222;
+            margin: 25px 0;
+        }
+
+        .certificate p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .certificate-id {
+            margin-top: 25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .signature {
+            margin-top: 45px;
+            font-weight: bold;
+        }
+
         footer {
             background: #063b8f;
             color: white;
             text-align: center;
             padding: 25px 20px;
             margin-top: 20px;
+        }
+
+        @media print {
+
+            body * {
+                visibility: hidden;
+            }
+
+            .certificate,
+            .certificate * {
+                visibility: visible;
+            }
+
+            .certificate {
+                display: block !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                max-width: none;
+                min-height: 100vh;
+                margin: 0;
+                border: 12px double #0876d1;
+            }
         }
 
         @media (max-width: 600px) {
@@ -193,6 +289,14 @@
             .course img {
                 height: 200px;
             }
+
+            .certificate h1 {
+                font-size: 28px;
+            }
+
+            .certificate-name {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -201,10 +305,17 @@
 
     <!-- HEADER -->
     <header>
-           <img src="logo.jpg" alt="Digital Skills & Computer Training Hub Logo" class="logo">
+        <img src="logo.jpg"
+             alt="Digital Skills & Computer Training Hub Logo"
+             class="logo">
+
         <h1>Digital Skills & Computer Training</h1>
+
         <p>Learn • Practice • Grow • Succeed</p>
-        <p class="ceo-name">OSUMAH HEBREWS OGIEAGHA — CEO</p>
+
+        <p class="ceo-name">
+            OSUMAH HEBREWS OGIEAGHA — CEO
+        </p>
     </header>
 
 
@@ -213,12 +324,14 @@
         <a href="index.html">🏠 Home</a>
         <a href="about.html">ℹ️ About</a>
         <a href="#courses">📚 Courses</a>
+        <a href="#certificate">🏆 Certificate</a>
         <a href="https://tinyurl.com/DComputertraining">📝 Register</a>
     </nav>
 
 
     <!-- HERO SECTION -->
     <section class="hero">
+
         <h2>Welcome to Our Training Hub</h2>
 
         <p>
@@ -226,51 +339,81 @@
             succeed in school, business, work and everyday life.
         </p>
 
-        <a href="#courses" class="button">View Our Courses</a>
+        <a href="#courses" class="button">
+            View Our Courses
+        </a>
+
     </section>
 
 
-    <!-- PRACTICAL TRAINING WITH PICTURES -->
+    <!-- PRACTICAL TRAINING -->
     <section class="section">
+
         <h2>💻 Our Practical Training</h2>
-        <p>Learn practical technology skills through hands-on training.</p>
+
+        <p>
+            Learn practical technology skills through hands-on training.
+        </p>
 
         <div class="courses">
 
             <div class="course">
                 <img src="computer-training.jpg"
                      alt="Computer Training">
+
                 <h3>💻 Computer Training</h3>
-                <p>Build strong computer skills through practical training.</p>
+
+                <p>
+                    Build strong computer skills through practical training.
+                </p>
             </div>
+
 
             <div class="course">
                 <img src="website-building.jpg"
                      alt="Website and App Building">
+
                 <h3>🌐 Website & App Building</h3>
-                <p>Learn HTML, website development and basic app building.</p>
+
+                <p>
+                    Learn HTML, website development and basic app building.
+                </p>
             </div>
+
 
             <div class="course">
                 <img src="cybersecurity.jpg"
                      alt="Cybersecurity Training">
+
                 <h3>🔐 Cybersecurity</h3>
-                <p>Learn cybersecurity fundamentals and responsible security practices.</p>
+
+                <p>
+                    Learn cybersecurity fundamentals and responsible
+                    security practices.
+                </p>
             </div>
+
 
             <div class="course">
                 <img src="digitalskills.jpg"
                      alt="Digital Skills Training">
+
                 <h3>📊 Digital Skills</h3>
-                <p>Develop practical digital skills for work, business and everyday life.</p>
+
+                <p>
+                    Develop practical digital skills for work, business
+                    and everyday life.
+                </p>
             </div>
 
         </div>
+
     </section>
 
 
     <!-- TRAINING SCHEDULE -->
     <section class="section">
+
         <h2>📅 Training Schedule</h2>
 
         <div class="courses">
@@ -287,8 +430,12 @@
 
             <div class="course">
                 <h3>⏰ Training Times</h3>
-                <p><strong>Morning:</strong> 8:30 AM – 11:30 AM</p>
-                <p><strong>Evening:</strong> 6:00 PM – 9:00 PM</p>
+                <p>
+                    <strong>Morning:</strong> 8:30 AM – 11:30 AM
+                </p>
+                <p>
+                    <strong>Evening:</strong> 6:00 PM – 9:00 PM
+                </p>
             </div>
 
             <div class="course">
@@ -303,15 +450,19 @@
 
             <div class="course">
                 <h3>📍 Physical Training Location</h3>
-                <p>42 Igando Road, Ikotun, Lagos, Nigeria</p>
+                <p>
+                    42 Igando Road, Ikotun, Lagos, Nigeria
+                </p>
             </div>
 
         </div>
+
     </section>
 
 
     <!-- REGISTER -->
     <section class="section">
+
         <h2>📝 Register for Training</h2>
 
         <p>
@@ -319,16 +470,21 @@
             Register today and start your learning journey with us.
         </p>
 
-        <p><strong>Registration Fee: ₦5,000</strong></p>
+        <p>
+            <strong>Registration Fee: ₦5,000</strong>
+        </p>
 
-        <a href="https://tinyurl.com/DComputertraining" class="button">
+        <a href="https://tinyurl.com/DComputertraining"
+           class="button">
             📝 REGISTER NOW
         </a>
+
     </section>
 
 
     <!-- ABOUT -->
     <section class="section">
+
         <h2>About Digital Skills & Computer Training</h2>
 
         <p>
@@ -357,45 +513,65 @@
             To make practical digital and computer skills accessible and
             help learners gain confidence for the modern world.
         </p>
+
     </section>
 
 
     <!-- COURSES -->
     <section class="section" id="courses">
+
         <h2>📚 Our Courses</h2>
 
         <div class="courses">
 
             <div class="course">
                 <h3>💻 Computer Fundamentals</h3>
-                <p>Learn the basics of using a computer, files, folders and the internet.</p>
-            </div>
 
-            <div class="course">
-                <h3>📊 Microsoft Office</h3>
-                <p>Learn Microsoft Word, Excel and PowerPoint for school and work.</p>
-            </div>
-
-            <div class="course">
-                <h3>🌐 Digital Skills</h3>
                 <p>
-                    Learn practical digital skills including website building,
-                    basic app building, online tools, internet research and
-                    digital productivity.
+                    Learn the basics of using a computer,
+                    files, folders and the internet.
                 </p>
             </div>
 
+
+            <div class="course">
+                <h3>📊 Microsoft Office</h3>
+
+                <p>
+                    Learn Microsoft Word, Excel and PowerPoint
+                    for school and work.
+                </p>
+            </div>
+
+
+            <div class="course">
+                <h3>🌐 Digital Skills</h3>
+
+                <p>
+                    Learn practical digital skills including website
+                    building, basic app building, online tools,
+                    internet research and digital productivity.
+                </p>
+            </div>
+
+
             <div class="course">
                 <h3>📱 Online Skills</h3>
-                <p>Learn useful online tools and skills for business, employment and personal development.</p>
+
+                <p>
+                    Learn useful online tools and skills for business,
+                    employment and personal development.
+                </p>
             </div>
 
         </div>
+
     </section>
 
 
     <!-- TRAINING FEES -->
     <section class="section">
+
         <h2>💰 Training Fees</h2>
 
         <div class="courses">
@@ -426,28 +602,33 @@
             </div>
 
         </div>
+
     </section>
 
 
     <!-- WHY CHOOSE US -->
     <section class="section">
+
         <h2>⭐ Why Choose Us?</h2>
 
         <p>✅ Practical training</p>
         <p>✅ Beginner-friendly lessons</p>
         <p>✅ Flexible learning</p>
         <p>✅ Skills for work and business</p>
+
     </section>
 
 
     <!-- TESTIMONIALS -->
     <section class="section">
+
         <h2>⭐ Student Testimonials</h2>
 
         <div class="courses">
 
             <div class="course">
                 <h3>Student Feedback</h3>
+
                 <p>
                     We value the experiences and feedback of our students.
                     Real student testimonials will be added here as our
@@ -455,8 +636,10 @@
                 </p>
             </div>
 
+
             <div class="course">
                 <h3>Share Your Experience</h3>
+
                 <p>
                     Completed your training with us?
                     We would love to hear about your learning experience.
@@ -464,72 +647,337 @@
             </div>
 
         </div>
+
+    </section>
+
+
+    <!-- CERTIFICATE ISSUE -->
+    <section class="section" id="certificate">
+
+        <h2>🏆 Certificate Issue</h2>
+
+        <p>
+            Congratulations on completing your training!
+            Certificates may be issued to students who have
+            successfully completed their selected training.
+        </p>
+
+        <div class="certificate-box">
+
+            <h3>📜 Generate Certificate</h3>
+
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter Student Full Name"
+            >
+
+            <select id="courseName">
+
+                <option value="">
+                    Select Course Completed
+                </option>
+
+                <option value="Computer Fundamentals">
+                    Computer Fundamentals
+                </option>
+
+                <option value="Microsoft Office">
+                    Microsoft Office
+                </option>
+
+                <option value="Digital Skills">
+                    Digital Skills
+                </option>
+
+                <option value="Online Skills">
+                    Online Skills
+                </option>
+
+                <option value="Full Computer Training">
+                    Full Computer Training
+                </option>
+
+                <option value="Website & App Building">
+                    Website & App Building
+                </option>
+
+                <option value="Cybersecurity">
+                    Cybersecurity
+                </option>
+
+            </select>
+
+            <input
+                type="date"
+                id="completionDate"
+            >
+
+            <input
+                type="text"
+                id="certificateID"
+                placeholder="Certificate ID e.g. DSC-2026-001"
+            >
+
+            <br>
+
+            <button
+                class="button"
+                onclick="generateCertificate()">
+                🏆 GENERATE CERTIFICATE
+            </button>
+
+        </div>
+
+
+        <!-- GENERATED CERTIFICATE -->
+
+        <div class="certificate" id="certificatePreview">
+
+            <h1>🏆 CERTIFICATE OF COMPLETION</h1>
+
+            <p>
+                This certificate is proudly presented to
+            </p>
+
+            <div class="certificate-name"
+                 id="displayStudentName">
+            </div>
+
+            <p>
+                for successfully completing the training course
+            </p>
+
+            <h2 id="displayCourseName"></h2>
+
+            <p>
+                at
+                <strong>
+                    Digital Skills & Computer Training
+                </strong>
+            </p>
+
+            <p>
+                Completion Date:
+                <strong id="displayDate"></strong>
+            </p>
+
+            <div class="signature">
+                ______________________________
+                <br>
+                <strong>OSUMAH HEBREWS OGIEAGHA</strong>
+                <br>
+                CEO / Training Director
+            </div>
+
+            <div class="certificate-id">
+                Certificate ID:
+                <span id="displayCertificateID"></span>
+            </div>
+
+        </div>
+
+        <button
+            class="button"
+            id="printCertificateButton"
+            style="display:none;"
+            onclick="window.print()">
+            🖨️ PRINT / SAVE CERTIFICATE
+        </button>
+
     </section>
 
 
     <!-- CONTACT -->
     <section class="section">
+
         <h2>📞 Contact Us</h2>
 
         <div class="courses">
 
             <div class="course">
                 <h3>📞 Phone</h3>
+
                 <p>08149392254</p>
                 <p>08057847954</p>
             </div>
 
+
             <div class="course">
                 <h3>📧 Email Address</h3>
-                <p>Digitalskillscomputertrainingh@gmail.com</p>
+
+                <p>
+                    Digitalskillscomputertrainingh@gmail.com
+                </p>
             </div>
+
 
             <div class="course">
                 <h3>📍 Location Address</h3>
-                <p>42 Igando Road, Ikotun, Lagos, Nigeria</p>
+
+                <p>
+                    42 Igando Road, Ikotun, Lagos, Nigeria
+                </p>
             </div>
 
         </div>
 
-        <a href="https://wa.me/2348149392254" class="button">
+
+        <a href="https://wa.me/2348149392254"
+           class="button">
             📱 Contact Us on WhatsApp
         </a>
+
     </section>
 
 
     <!-- FINAL REGISTRATION -->
     <section class="section">
+
         <h2>Join Our Training</h2>
 
-        <p>Ready to develop your digital and computer skills?</p>
+        <p>
+            Ready to develop your digital and computer skills?
+        </p>
 
-        <a href="https://tinyurl.com/DComputertraining" class="button">
+        <a href="https://tinyurl.com/DComputertraining"
+           class="button">
             📝 Register for Training
         </a>
+
     </section>
 
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 Digital Skills & Computer Training</p>
+
+        <p>
+            © 2026 Digital Skills & Computer Training
+        </p>
+
     </footer>
 
 
+    <!-- CERTIFICATE JAVASCRIPT -->
+
+    <script>
+
+        function generateCertificate() {
+
+            const studentName =
+                document.getElementById("studentName").value.trim();
+
+            const courseName =
+                document.getElementById("courseName").value;
+
+            const completionDate =
+                document.getElementById("completionDate").value;
+
+            const certificateID =
+                document.getElementById("certificateID").value.trim();
+
+
+            if (
+                studentName === "" ||
+                courseName === "" ||
+                completionDate === "" ||
+                certificateID === ""
+            ) {
+
+                alert(
+                    "Please complete all certificate information."
+                );
+
+                return;
+            }
+
+
+            const dateObject =
+                new Date(completionDate);
+
+            const formattedDate =
+                dateObject.toLocaleDateString(
+                    "en-NG",
+                    {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                    }
+                );
+
+
+            document.getElementById(
+                "displayStudentName"
+            ).textContent = studentName;
+
+
+            document.getElementById(
+                "displayCourseName"
+            ).textContent = courseName;
+
+
+            document.getElementById(
+                "displayDate"
+            ).textContent = formattedDate;
+
+
+            document.getElementById(
+                "displayCertificateID"
+            ).textContent = certificateID;
+
+
+            document.getElementById(
+                "certificatePreview"
+            ).style.display = "block";
+
+
+            document.getElementById(
+                "printCertificateButton"
+            ).style.display = "inline-block";
+
+
+            document.getElementById(
+                "certificatePreview"
+            ).scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+
     <!-- TAWK.TO LIVE CHAT -->
+
     <script type="text/javascript">
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
 
         (function() {
+
             var s1 = document.createElement("script");
             var s0 = document.getElementsByTagName("script")[0];
 
             s1.async = true;
-            s1.src = "https://embed.tawk.to/6a8c3ff743fd99344af4308b/1k0ptjo4k";
-            s1.charset = "UTF-8";
-            s1.setAttribute("crossorigin", "*");
 
-            s0.parentNode.insertBefore(s1, s0);
+            s1.src =
+                "https://embed.tawk.to/6a8c3ff743fd99344af4308b/1k0ptjo4k";
+
+            s1.charset = "UTF-8";
+
+            s1.setAttribute(
+                "crossorigin",
+                "*"
+            );
+
+            s0.parentNode.insertBefore(
+                s1,
+                s0
+            );
+
         })();
+
     </script>
 
 </body>
