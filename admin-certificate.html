@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Certificate Issuing | Digital Skills & Computer Training</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(
+                135deg,
+                #ff0000,
+                #ff7f00,
+                #ffff00,
+                #00cc44,
+                #008cff,
+                #4b0082,
+                #8f00ff
+            );
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .admin-box {
+            max-width: 650px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.20);
+        }
+
+        h1 {
+            text-align: center;
+            color: #063b8f;
+        }
+
+        .admin-badge {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #063b8f;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0876d1;
+        }
+
+        #adminPanel {
+            display: none;
+        }
+
+        #loginMessage,
+        #statusMessage {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .logout {
+            background: #b00020;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="admin-box">
+
+    <div class="admin-badge">🔐</div>
+
+    <h1>Admin Certificate Issuing</h1>
+
+    <!-- LOGIN -->
+    <div id="loginPanel">
+
+        <p style="text-align:center;">
+            Authorized administration only.
+        </p>
+
+        <button onclick="loginAdmin()">
+            🔐 Sign in as Administrator
+        </button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel">
+
+        <div class="warning">
+            🔒 This area is restricted to authorized Digital Skills &
+            Computer Training administration.
+        </div>
+
+        <label for="studentName">
+            Student Full Name
+        </label>
+
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Enter student's full name"
+        >
+
+        <label for="courseName">
+            Course Completed
+        </label>
+
+        <select id="courseName">
+
+            <option value="">
+                Select Course
+            </option>
+
+            <option value="Computer Fundamentals">
+                Computer Fundamentals
+            </option>
+
+            <option value="Microsoft Office">
+                Microsoft Office
+            </option>
+
+            <option value="Digital Skills">
+                Digital Skills
+            </option>
+
+            <option value="Online Skills">
+                Online Skills
+            </option>
+
+            <option value="Full Computer Training">
+                Full Computer Training
+            </option>
+
+            <option value="Website & App Building">
+                Website & App Building
+            </option>
+
+            <option value="Cybersecurity">
+                Cybersecurity
+            </option>
+
+        </select>
+
+        <button onclick="issueCertificate()">
+            🏆 ISSUE CERTIFICATE
+        </button>
+
+        <p id="statusMessage"></p>
+
+        <button class="logout" onclick="logoutAdmin()">
+            🚪 Sign Out
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- Firebase -->
+<script type="module">
+
+    /*
+       YOUR FIREBASE CONFIGURATION
+       WILL GO HERE AFTER WE SET UP
+       ADMIN AUTHENTICATION.
+    */
+
+    function loginAdmin() {
+
+        document.getElementById("loginMessage").innerText =
+            "Firebase administrator login will be connected next.";
+    }
+
+    function issueCertificate() {
+
+        document.getElementById("statusMessage").innerText =
+            "Certificate issuing will be connected next.";
+    }
+
+    function logoutAdmin() {
+
+        document.getElementById("adminPanel").style.display = "none";
+        document.getElementById("loginPanel").style.display = "block";
+    }
+
+</script>
+
+</body>
+</html>
