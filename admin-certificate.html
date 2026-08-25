@@ -200,35 +200,86 @@
 
     </div>
 
-</div>
-
-
+</div
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC5C1icpQFZ3DmUyzCPa-Ip2vgONK5aTRQ",
+  authDomain: "digital-computer-training-hub.firebaseapp.com",
+  projectId: "digital-computer-training-hub",
+  storageBucket: "digital-computer-training-hub.firebasestorage.app",
+  messagingSenderId: "409120626153",
+  appId: "1:409120626153:web:42a0524b0eade38ca26778",
+  measurementId: "G-ZCQ01L5WDH"
+};
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <!-- Firebase -->
-<script type="module">
+<script>
 
-    /*
-       YOUR FIREBASE CONFIGURATION
-       WILL GO HERE AFTER WE SET UP
-       ADMIN AUTHENTICATION.
-    */
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC5C1icpQFZ3DmUyzCPa-Ip2vgONK5aTRQ",
+  authDomain: "digital-computer-training-hub.firebaseapp.com",
+  projectId: "digital-computer-training-hub",
+  storageBucket: "digital-computer-training-hub.firebasestorage.app",
+  messagingSenderId: "409120626153",
+  appId: "1:409120626153:web:42a0524b0eade38ca26778",
+  measurementId: "G-ZCQ01L5WDH"
+}
+<script>
+firebase.initializeApp(firebaseConfig);
 
-    function loginAdmin() {
+const auth = firebase.auth();
 
-        document.getElementById("loginMessage").innerText =
-            "Firebase administrator login will be connected next.";
-    }
+const ADMIN_EMAIL = "digitalskillscomputertrainingh@gmail.com";
 
-    function issueCertificate() {
+function loginAdmin() {
 
-        document.getElementById("statusMessage").innerText =
-            "Certificate issuing will be connected next.";
-    }
+    const provider = new firebase.auth.GoogleAuthProvider();
 
-    function logoutAdmin() {
+    auth.signInWithPopup(provider)
+        .then((result) => {
+
+            const user = result.user;
+
+            if (user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+
+                auth.signOut();
+
+                document.getElementById("loginMessage").innerText =
+                    "❌ Access denied. This Google account is not authorized.";
+
+                return;
+            }
+
+            document.getElementById("loginPanel").style.display = "none";
+            document.getElementById("adminPanel").style.display = "block";
+
+            document.getElementById("loginMessage").innerText =
+                "✅ Administrator access granted.";
+
+        })
+        .catch((error) => {
+
+            document.getElementById("loginMessage").innerText =
+                "❌ Sign-in failed. Please try again.";
+
+            console.error(error);
+        });
+}
+
+
+function logoutAdmin() {
+
+    auth.signOut().then(() => {
 
         document.getElementById("adminPanel").style.display = "none";
         document.getElementById("loginPanel").style.display = "block";
-    }
+
+        document.getElementById("loginMessage").innerText =
+            "You have been signed out.";
+
+    });
+}
 
 </script>
 
