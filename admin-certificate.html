@@ -34,7 +34,7 @@
             background: white;
             padding: 30px;
             border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.20);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.20);
         }
 
         h1 {
@@ -44,7 +44,7 @@
 
         .admin-badge {
             text-align: center;
-            font-size: 40px;
+            font-size: 45px;
         }
 
         label {
@@ -98,190 +98,315 @@
             padding: 15px;
             border-radius: 8px;
             margin-top: 20px;
+            text-align: center;
         }
 
         .logout {
             background: #b00020;
+        }
+
+        .logout:hover {
+            background: #d00030;
+        }
+
+        .admin-info {
+            text-align: center;
+            color: #555;
+            line-height: 1.6;
         }
     </style>
 </head>
 
 <body>
 
-<div class="admin-box">
+    <div class="admin-box">
 
-    <div class="admin-badge">🔐</div>
+        <div class="admin-badge">🔐</div>
 
-    <h1>Admin Certificate Issuing</h1>
+        <h1>Admin Certificate Issuing</h1>
 
-    <!-- LOGIN -->
-    <div id="loginPanel">
+        <!-- LOGIN PANEL -->
+        <div id="loginPanel">
 
-        <p style="text-align:center;">
-            Authorized administration only.
-        </p>
+            <p class="admin-info">
+                This area is restricted to authorized administration only.
+            </p>
 
-        <button onclick="loginAdmin()">
-            🔐 Sign in as Administrator
-        </button>
+            <button type="button" onclick="loginAdmin()">
+                🔐 SIGN IN AS ADMINISTRATOR
+            </button>
 
-        <p id="loginMessage"></p>
+            <p id="loginMessage"></p>
 
-    </div>
-
-
-    <!-- ADMIN PANEL -->
-    <div id="adminPanel">
-
-        <div class="warning">
-            🔒 This area is restricted to authorized Digital Skills &
-            Computer Training administration.
         </div>
 
-        <label for="studentName">
-            Student Full Name
-        </label>
 
-        <input
-            type="text"
-            id="studentName"
-            placeholder="Enter student's full name"
-        >
+        <!-- ADMIN PANEL -->
+        <div id="adminPanel">
 
-        <label for="courseName">
-            Course Completed
-        </label>
+            <div class="warning">
+                🔒 <strong>Authorized Administrator Access</strong><br>
+                Only approved administration can issue certificates.
+            </div>
 
-        <select id="courseName">
+            <label for="studentName">
+                Student Full Name
+            </label>
 
-            <option value="">
-                Select Course
-            </option>
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter student's full name"
+            >
 
-            <option value="Computer Fundamentals">
-                Computer Fundamentals
-            </option>
+            <label for="courseName">
+                Course Completed
+            </label>
 
-            <option value="Microsoft Office">
-                Microsoft Office
-            </option>
+            <select id="courseName">
 
-            <option value="Digital Skills">
-                Digital Skills
-            </option>
+                <option value="">
+                    Select Course
+                </option>
 
-            <option value="Online Skills">
-                Online Skills
-            </option>
+                <option value="Computer Fundamentals">
+                    Computer Fundamentals
+                </option>
 
-            <option value="Full Computer Training">
-                Full Computer Training
-            </option>
+                <option value="Microsoft Office">
+                    Microsoft Office
+                </option>
 
-            <option value="Website & App Building">
-                Website & App Building
-            </option>
+                <option value="Digital Skills">
+                    Digital Skills
+                </option>
 
-            <option value="Cybersecurity">
-                Cybersecurity
-            </option>
+                <option value="Online Skills">
+                    Online Skills
+                </option>
 
-        </select>
+                <option value="Full Computer Training">
+                    Full Computer Training
+                </option>
 
-        <button onclick="issueCertificate()">
-            🏆 ISSUE CERTIFICATE
-        </button>
+                <option value="Website & App Building">
+                    Website & App Building
+                </option>
 
-        <p id="statusMessage"></p>
+                <option value="Cybersecurity">
+                    Cybersecurity
+                </option>
 
-        <button class="logout" onclick="logoutAdmin()">
-            🚪 Sign Out
-        </button>
+            </select>
+
+            <button type="button" onclick="issueCertificate()">
+                🏆 ISSUE CERTIFICATE
+            </button>
+
+            <p id="statusMessage"></p>
+
+            <button
+                type="button"
+                class="logout"
+                onclick="logoutAdmin()"
+            >
+                🚪 SIGN OUT
+            </button>
+
+        </div>
 
     </div>
 
-</div
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyC5C1icpQFZ3DmUyzCPa-Ip2vgONK5aTRQ",
-  authDomain: "digital-computer-training-hub.firebaseapp.com",
-  projectId: "digital-computer-training-hub",
-  storageBucket: "digital-computer-training-hub.firebasestorage.app",
-  messagingSenderId: "409120626153",
-  appId: "1:409120626153:web:42a0524b0eade38ca26778",
-  measurementId: "G-ZCQ01L5WDH"
-};
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<!-- Firebase -->
-<script>
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyC5C1icpQFZ3DmUyzCPa-Ip2vgONK5aTRQ",
-  authDomain: "digital-computer-training-hub.firebaseapp.com",
-  projectId: "digital-computer-training-hub",
-  storageBucket: "digital-computer-training-hub.firebasestorage.app",
-  messagingSenderId: "409120626153",
-  appId: "1:409120626153:web:42a0524b0eade38ca26778",
-  measurementId: "G-ZCQ01L5WDH"
-}
-<script>
-firebase.initializeApp(firebaseConfig);
+    <!-- FIREBASE LIBRARIES -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
-const auth = firebase.auth();
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-const ADMIN_EMAIL = "digitalskillscomputertrainingh@gmail.com";
 
-function loginAdmin() {
+    <!-- FIREBASE ADMIN LOGIN -->
+    <script>
 
-    const provider = new firebase.auth.GoogleAuthProvider();
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC5C1icpQFZ3DmUyzCPa-Ip2vgONK5aTRQ",
+            authDomain: "digital-computer-training-hub.firebaseapp.com",
+            projectId: "digital-computer-training-hub",
+            storageBucket: "digital-computer-training-hub.firebasestorage.app",
+            messagingSenderId: "409120626153",
+            appId: "1:409120626153:web:42a0524b0eade38ca26778",
+            measurementId: "G-ZCQ01L5WDH"
+        };
 
-    auth.signInWithPopup(provider)
-        .then((result) => {
 
-            const user = result.user;
+        // Start Firebase
+        firebase.initializeApp(firebaseConfig);
 
-            if (user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
 
-                auth.signOut();
+        // Firebase Authentication
+        const auth = firebase.auth();
 
-                document.getElementById("loginMessage").innerText =
-                    "❌ Access denied. This Google account is not authorized.";
 
-                return;
+        // AUTHORIZED ADMIN EMAIL
+        const ADMIN_EMAIL =
+            "digitalskillscomputertrainingh@gmail.com";
+
+
+        // ADMIN LOGIN
+        function loginAdmin() {
+
+            const provider =
+                new firebase.auth.GoogleAuthProvider();
+
+            document.getElementById("loginMessage").innerText =
+                "Opening Google sign-in...";
+
+            auth.signInWithPopup(provider)
+
+                .then((result) => {
+
+                    const user = result.user;
+
+                    if (
+                        !user ||
+                        !user.email ||
+                        user.email.toLowerCase() !==
+                        ADMIN_EMAIL.toLowerCase()
+                    ) {
+
+                        auth.signOut();
+
+                        document.getElementById("loginMessage").innerText =
+                            "❌ Access denied. This Google account is not authorized.";
+
+                        return;
+                    }
+
+                    document.getElementById("loginPanel").style.display =
+                        "none";
+
+                    document.getElementById("adminPanel").style.display =
+                        "block";
+
+                    document.getElementById("loginMessage").innerText =
+                        "";
+
+                })
+
+                .catch((error) => {
+
+                    console.error(error);
+
+                    document.getElementById("loginMessage").innerText =
+                        "❌ Sign-in failed: " + error.message;
+
+                });
+
+        }
+
+
+        // CHECK LOGIN STATUS
+        auth.onAuthStateChanged((user) => {
+
+            if (
+                user &&
+                user.email &&
+                user.email.toLowerCase() ===
+                ADMIN_EMAIL.toLowerCase()
+            ) {
+
+                document.getElementById("loginPanel").style.display =
+                    "none";
+
+                document.getElementById("adminPanel").style.display =
+                    "block";
+
+            } else {
+
+                document.getElementById("adminPanel").style.display =
+                    "none";
+
+                document.getElementById("loginPanel").style.display =
+                    "block";
+
             }
 
-            document.getElementById("loginPanel").style.display = "none";
-            document.getElementById("adminPanel").style.display = "block";
-
-            document.getElementById("loginMessage").innerText =
-                "✅ Administrator access granted.";
-
-        })
-        .catch((error) => {
-
-            document.getElementById("loginMessage").innerText =
-                "❌ Sign-in failed. Please try again.";
-
-            console.error(error);
         });
-}
 
 
-function logoutAdmin() {
+        // ISSUE CERTIFICATE
+        function issueCertificate() {
 
-    auth.signOut().then(() => {
+            const studentName =
+                document.getElementById("studentName").value.trim();
 
-        document.getElementById("adminPanel").style.display = "none";
-        document.getElementById("loginPanel").style.display = "block";
+            const courseName =
+                document.getElementById("courseName").value;
 
-        document.getElementById("loginMessage").innerText =
-            "You have been signed out.";
+            if (studentName === "") {
 
-    });
-}
+                document.getElementById("statusMessage").innerText =
+                    "❌ Please enter the student's full name.";
 
-</script>
+                return;
+
+            }
+
+            if (courseName === "") {
+
+                document.getElementById("statusMessage").innerText =
+                    "❌ Please select the completed course.";
+
+                return;
+
+            }
+
+            document.getElementById("statusMessage").innerText =
+                "⚠️ Admin access confirmed. Certificate issuing will be connected to the secure certificate database next.";
+
+        }
+
+
+        // LOG OUT
+        function logoutAdmin() {
+
+            auth.signOut()
+
+                .then(() => {
+
+                    document.getElementById("adminPanel").style.display =
+                        "none";
+
+                    document.getElementById("loginPanel").style.display =
+                        "block";
+
+                    document.getElementById("loginMessage").innerText =
+                        "You have been signed out.";
+
+                    document.getElementById("statusMessage").innerText =
+                        "";
+
+                    document.getElementById("studentName").value =
+                        "";
+
+                    document.getElementById("courseName").value =
+                        "";
+
+                })
+
+                .catch((error) => {
+
+                    console.error(error);
+
+                    alert(
+                        "Sign out failed: " + error.message
+                    );
+
+                });
+
+        }
+
+    </script>
 
 </body>
 </html>
