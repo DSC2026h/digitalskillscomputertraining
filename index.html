@@ -1272,6 +1272,54 @@ async function verifyCertificate() {
 }
 
 </script>
+<!-- CPX RESEARCH SURVEYS -->
+<section id="cpx-surveys" style="padding: 30px 15px; background: white; text-align: center;">
+    <h2 style="color: #0876d1; margin-bottom: 10px;">
+        Earn Rewards with Paid Surveys
+    </h2>
+
+    <p style="font-size: 16px; margin-bottom: 20px;">
+        Complete available surveys and earn rewards.
+    </p>
+
+    <iframe
+  id="cpxFrame"
+  width="100%"
+  frameBorder="0"
+  height="2000px">
+</iframe>
+
+</section>
+<script>
+(function () {
+  var cpxUserId = localStorage.getItem("cpx_user_id");
+
+  if (!cpxUserId) {
+    cpxUserId = "visitor_" + crypto.randomUUID();
+    localStorage.setItem("cpx_user_id", cpxUserId);
+  }
+
+  var frame = document.getElementById("cpxFrame");
+
+  frame.src =
+    "https://offers.cpx-research.com/index.php" +
+    "?app_id=35633" +
+    "&ext_user_id=" + encodeURIComponent(cpxUserId);
+})();
+</script>
+<script>
+(function () {
+    let cpxUserId = localStorage.getItem("cpx_user_id");
+
+    if (!cpxUserId) {
+        cpxUserId = "visitor_" + crypto.randomUUID();
+        localStorage.setItem("cpx_user_id", cpxUserId);
+    }
+
+    window.cpxUserId = cpxUserId;
+})();
+</script>
+<!-- TAWK.TO LIVE CHAT -->
     <!-- TAWK.TO LIVE CHAT -->
 
     <script type="text/javascript">
