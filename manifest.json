@@ -1,7 +1,7 @@
 {
   "name": "Digital Skills & Computer Training Hub",
   "short_name": "Digital Skills",
-  "start_url": "./",
+  "start_url": "./app.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -9,7 +9,7 @@
   "description": "Digital Skills & Computer Training Hub",
   "icons": [
     {
-      "src": "Logo.jpg",
+      "src": "./Logo.jpg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any"
