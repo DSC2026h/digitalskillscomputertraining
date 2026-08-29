@@ -1,0 +1,10 @@
+{
+  "name": "Digital Skills & Computer Training Hub",
+  "short_name": "Digital Skills",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff1493",
+  "description": "Digital Skills & Computer Training Hub",
+  "icons": []
+}
